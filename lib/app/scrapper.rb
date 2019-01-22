@@ -50,6 +50,14 @@ class Scrapper
 		end
 		ws.save
 	end
+
+	def save_as_csv
+	  CSV.open("db/emails.csv", "w") do |csv|
+		@email_town.each_pair  do |key, value|
+		  csv << [key, value]
+		end
+	  end
+	end
 	
 	def perform
 		get_townhall_urls
@@ -58,7 +66,8 @@ class Scrapper
 			get_townhall_email(townhall_url)
 		end
 
-		save_as_JSON
-		save_as_spreadsheet
+		# save_as_JSON
+		# save_as_spreadsheet
+		save_as_csv
 	end
 end
