@@ -94,6 +94,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   google_drive
+  nokogiri
   pry
   rspec
   rubocop
